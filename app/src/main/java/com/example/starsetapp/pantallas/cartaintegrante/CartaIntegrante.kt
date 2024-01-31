@@ -32,7 +32,6 @@ import com.google.relay.compose.RelayText
 
 // Design to select for CartaIntegrante
 enum class Property1 {
-    Default,
     Dustin,
     Ron,
     Brock,
@@ -48,29 +47,9 @@ enum class Property1 {
 @Composable
 fun CartaIntegrante(
     modifier: Modifier = Modifier,
-    property1: Property1 = Property1.Default
+    property1: Property1 = Property1.Adam
 ) {
     when (property1) {
-        Property1.Default -> TopLevelProperty1Default(modifier = modifier) {
-            TextoDustinProperty1Default(
-                modifier = Modifier.boxAlign(
-                    alignment = Alignment.TopStart,
-                    offset = DpOffset(
-                        x = 8.0.dp,
-                        y = 96.0.dp
-                    )
-                )
-            )
-            ContenedorFotoProperty1Default(
-                modifier = Modifier.boxAlign(
-                    alignment = Alignment.TopStart,
-                    offset = DpOffset(
-                        x = 8.0.dp,
-                        y = 8.0.dp
-                    )
-                )
-            ) {}
-        }
         Property1.Dustin -> TopLevelProperty1Dustin(modifier = modifier) {
             DerechaProperty1Dustin()
             DustinCantanteProperty1Dustin()
@@ -90,18 +69,6 @@ fun CartaIntegrante(
     }
 }
 
-@Preview(widthDp = 136, heightDp = 112)
-@Composable
-private fun CartaIntegranteProperty1DefaultPreview() {
-    MaterialTheme {
-        RelayContainer {
-            CartaIntegrante(
-                property1 = Property1.Default,
-                modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)
-            )
-        }
-    }
-}
 
 @Preview(widthDp = 152, heightDp = 224)
 @Composable

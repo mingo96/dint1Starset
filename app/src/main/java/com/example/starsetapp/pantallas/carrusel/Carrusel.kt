@@ -1,9 +1,12 @@
 package com.example.starsetapp.carrusel
 
+import android.util.Log
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredWidth
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -134,6 +137,7 @@ fun TopLevelCarrusel(
         modifier = modifier
             .fillMaxWidth(1.0f)
             .fillMaxHeight(1.0f)
+            .padding(16.dp)
     )
 }
 
@@ -160,7 +164,7 @@ fun Contenedor(
                             Tipo.Integrantes->{
                                 {
                                     for (i in Property1.values()){
-                                        CartaCantante(property1 = i)
+                                        CartaCantante(Modifier, property1 = i)
                                     }
                                 }
                             }
@@ -194,7 +198,7 @@ fun Contenedor(
                             }
                 },
         modifier = modifier
-            .requiredWidth(712.0.dp)
+            .wrapContentWidth()
             .fillMaxHeight(1.0f)
     )
 }

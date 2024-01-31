@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.starsetapp.carrusel.Carrusel
+import com.example.starsetapp.divisions.Divisions
 import com.example.starsetapp.pantallainicial.CarruselInstance
 import com.example.starsetapp.pantallainicial.PantallaInicial
 import com.example.starsetapp.ui.theme.StarsetAppTheme
@@ -29,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    PantallaInicial()
+                    Divisions()
                 }
             }
         }

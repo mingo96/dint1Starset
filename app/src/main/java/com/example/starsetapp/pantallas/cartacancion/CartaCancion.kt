@@ -97,7 +97,7 @@ enum class Cancion {
 @Composable
 fun CartaCancion(
     modifier: Modifier = Modifier,
-    cancion: Cancion = Cancion.FirstLight
+    cancion: Cancion
 ) {
     when (cancion) {
         Cancion.FirstLight -> TopLevelCancionFirstLight(modifier = modifier) {
