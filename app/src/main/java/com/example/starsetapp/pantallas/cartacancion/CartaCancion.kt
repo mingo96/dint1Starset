@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -429,7 +430,7 @@ class CancionTexto{
                 }
             }),
             Pair(Cancion.WhereTheSkiesEnd,buildAnnotatedString {
-                append("Where The Skies End ")
+                append("Where The Skies End\n")
                 append("(")
                 append("6:34")
                 append(")\n")
@@ -774,7 +775,7 @@ fun CartaCancion(
             TextoCancion(text = CancionTexto.correspondencia.find { it.first==cancion }!!.second)
         }
         Cancion.WhereTheSkiesEnd -> TopLevelCancion(modifier = modifier) {
-                        ImagenCancionPocoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion27))
+                        ImagenCancionMuchoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion27))
             TextoCancion(text = CancionTexto.correspondencia.find { it.first==cancion }!!.second)
         }
         Cancion.Echo -> TopLevelCancion(modifier = modifier) {
@@ -883,8 +884,7 @@ fun TextoCancion(modifier:Modifier = Modifier, text:AnnotatedString){
             .fillMaxWidth(1.0f)
             .fillMaxHeight(1.0f)
             .wrapContentHeight(
-                align = Alignment.Bottom,
-                unbounded = true
+                align = Alignment.Bottom
             )
     )
 }
@@ -905,8 +905,11 @@ fun TopLevelCancion(
         radius = 5.0,
         content = content,
         modifier = modifier
-            .fillMaxWidth(1.0f)
-            .fillMaxHeight(1.0f)
+
+            .width(152.dp)
+            .fillMaxHeight(1.0f).wrapContentHeight(
+                align = Alignment.CenterVertically
+            )
     )
 }
 
@@ -914,18 +917,18 @@ fun TopLevelCancion(
 fun ImagenCancionMuchoTexto(modifier: Modifier = Modifier, imagen:Int) {
     RelayImage(
         image = painterResource(imagen),
-        contentScale = ContentScale.Crop,
+        contentScale = ContentScale.FillBounds,
         modifier = modifier
             .padding(
                 paddingValues = PaddingValues(
                     start = 8.0.dp,
                     top = 8.0.dp,
                     end = 8.0.dp,
-                    bottom = 72.0.dp
+                    bottom = 8.0.dp
                 )
             )
-            .fillMaxWidth(1.0f)
-            .fillMaxHeight(1.0f)
+            .fillMaxWidth()
+            .fillMaxHeight(0.45f)
     )
 }
 
@@ -934,18 +937,18 @@ fun ImagenCancionMuchoTexto(modifier: Modifier = Modifier, imagen:Int) {
 fun ImagenCancionPocoTexto(modifier: Modifier = Modifier, imagen:Int) {
     RelayImage(
         image = painterResource(imagen),
-        contentScale = ContentScale.Crop,
+        contentScale = ContentScale.FillBounds,
         modifier = modifier
             .padding(
                 paddingValues = PaddingValues(
                     start = 8.0.dp,
                     top = 8.0.dp,
                     end = 8.0.dp,
-                    bottom = 64.0.dp
+                    bottom = 8.0.dp
                 )
             )
-            .fillMaxWidth(1.0f)
-            .fillMaxHeight(1.0f)
+            .fillMaxWidth()
+            .fillMaxHeight(0.6f)
     )
 }
 
