@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -20,9 +19,6 @@ import com.example.starsetapp.cuadrotexto.CuadroTexto
 import com.example.starsetapp.framealbum.Album
 import com.example.starsetapp.framealbum.FrameAlbum
 import com.example.starsetapp.pantallabasica.PantallaBasica
-import com.example.starsetapp.pantallainicial.ContenedorContenedorCarrusel
-import com.example.starsetapp.pantallainicial.ContenedorTextoTitulo
-import com.example.starsetapp.pantallainicial.TextoTituloCarrusel
 import com.google.relay.compose.RelayContainer
 import com.google.relay.compose.RelayContainerScope
 
@@ -44,17 +40,41 @@ fun Divisions(modifier: Modifier = Modifier) {
 
             InfoAlbum(modifier = Modifier)
             CancionEstrella(modifier = Modifier)
-            Row (Modifier.fillMaxWidth().fillMaxHeight(0.4f).padding(24.dp)){
+            Row (Modifier.fillMaxWidth().fillMaxHeight(0.25f).padding(horizontal = 24.dp, vertical = 12.dp)){
                 SpotifyAlbum(modifier = Modifier)
                 Compra(modifier = Modifier)
             }
-            ContenedorContenedorCarrusel() {
+            ContenedorCarruselCancionesBasico() {
                 CarruselInstance()
             }
 
         }
     }
 }
+
+
+@Composable
+fun ContenedorCarruselCancionesBasico(
+    modifier: Modifier = Modifier,
+    content: @Composable RelayContainerScope.() -> Unit
+) {
+    RelayContainer(
+        backgroundColor = Color(
+            alpha = 71,
+            red = 255,
+            green = 255,
+            blue = 255
+        ),
+        isStructured = true,
+        radius = 9.0,
+        content = content,
+        modifier = modifier
+            .padding(paddingValues = PaddingValues(vertical = 12.dp, horizontal = 24.dp))
+            .fillMaxWidth(1.0f)
+            .fillMaxHeight(1.0f)
+    )
+}
+
 
 @Preview(widthDp = 360, heightDp = 640)
 @Composable
@@ -101,13 +121,12 @@ fun CarruselInstance(modifier: Modifier = Modifier) {
             .padding(
                 paddingValues = PaddingValues(
                     start = 24.0.dp,
-                    top = 416.0.dp,
                     end = 24.0.dp,
                     bottom = 24.0.dp
                 )
             )
             .fillMaxWidth(1.0f)
-            .fillMaxHeight(0.4f)
+            .fillMaxHeight(1.0f)
     )
 }
 
@@ -135,7 +154,7 @@ fun CancionEstrella(modifier: Modifier = Modifier) {
                 )
             )
             .fillMaxWidth(1.0f)
-            .fillMaxHeight(0.2f)
+            .fillMaxHeight(0.15f)
     )
 }
 

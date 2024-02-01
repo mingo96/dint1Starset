@@ -127,12 +127,9 @@ fun CuadroSuperior(
             paddingValues = PaddingValues(
                 start = 0.0.dp,
                 top = 0.0.dp,
-                end = 0.0.dp,
-                bottom = 560.0.dp
+                end = 0.0.dp
             )
-        ).fillMaxWidth(1.0f).fillMaxHeight(0.7f).wrapContentHeight(
-            align = Alignment.CenterVertically
-        )
+        ).fillMaxWidth(1.0f).fillMaxHeight(0.151f)
     )
 }
 

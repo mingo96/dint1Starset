@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.example.starsetapp.carrusel.Carrusel
 import com.example.starsetapp.pantallabasica.PantallaBasica
-import com.google.relay.compose.BoxScopeInstance.rowWeight
 import com.google.relay.compose.RelayContainer
 import com.google.relay.compose.RelayContainerScope
 import com.google.relay.compose.RelayText
@@ -44,7 +43,7 @@ fun PantallaInicial(modifier: Modifier = Modifier) {
 
             Titulo(modifier = Modifier)
 
-            ContenedorContenedorCarrusel() {
+            ContenedorCarruselIntegrantes() {
                 ContenedorTextoTitulo() {
                     TextoTituloCarrusel()
                 }
@@ -152,7 +151,7 @@ fun CarruselInstance(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun ContenedorContenedorCarrusel(
+fun ContenedorCarruselIntegrantes(
     modifier: Modifier = Modifier,
     content: @Composable RelayContainerScope.() -> Unit
 ) {
