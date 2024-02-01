@@ -1,5 +1,6 @@
 package com.example.starsetapp.registro
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,9 +19,12 @@ import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.starsetapp.cuadroformulario.CuadroFormulario
 import com.example.starsetapp.cuadrotexto.CuadroTexto
 import com.example.starsetapp.pantallabasica.PantallaBasica
+import com.example.starsetapp.pantallas.PantallaBasicaInstance
 import com.google.relay.compose.RelayContainer
 import com.google.relay.compose.RelayContainerScope
 import com.google.relay.compose.RelayText
@@ -32,59 +36,45 @@ import com.google.relay.compose.RelayText
  * Generated code; do not edit directly
  */
 @Composable
-fun Registro(modifier: Modifier = Modifier) {
+fun Registro(modifier: Modifier = Modifier, navController: NavController) {
     TopLevel(modifier = modifier) {
-        PantallaBasicaInstance(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
-        CuadroTextoInstance(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
-        ContenedorFormulario(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)) {
-            CuadroPassword(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
-            CuadroCorreo(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
-            CuadroNombreUsuario(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
-            Frame16(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)) {
-                RegStrame(
-                    modifier = Modifier.boxAlign(
-                        alignment = Alignment.Center,
-                        offset = DpOffset(
-                            x = 0.0.dp,
-                            y = 0.15587234497070312.dp
+
+        PantallaBasicaInstance(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f),navController)
+        Column(){
+            Titulo(modifier = Modifier)
+
+            CuadroTextoInstance(modifier = Modifier)
+            ContenedorFormulario(modifier = Modifier) {
+                CuadroPassword(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
+                CuadroCorreo(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
+                CuadroNombreUsuario(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
+                Frame16(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)) {
+                    RegStrame(
+                        modifier = Modifier.boxAlign(
+                            alignment = Alignment.Center,
+                            offset = DpOffset(
+                                x = 0.0.dp,
+                                y = 0.15587234497070312.dp
+                            )
                         )
                     )
-                )
-            }
-            CuadroTextoFormulario(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)) {
-                Formulario(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
+                }
+                CuadroTextoFormulario(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)) {
+                    Formulario(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
+                }
             }
         }
-        Titulo(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
     }
-}
-
-@Preview(widthDp = 360, heightDp = 640)
-@Composable
-private fun RegistroPreview() {
-    MaterialTheme {
-        RelayContainer {
-            Registro(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
-        }
-    }
-}
-
-@Composable
-fun PantallaBasicaInstance(modifier: Modifier = Modifier) {
-    PantallaBasica(modifier = modifier.fillMaxWidth(1.0f).fillMaxHeight(1.0f))
 }
 
 @Composable
 fun CuadroTextoInstance(modifier: Modifier = Modifier) {
     CuadroTexto(
         modifier = modifier.padding(
-            paddingValues = PaddingValues(
-                start = 24.0.dp,
-                top = 96.0.dp,
-                end = 24.0.dp,
-                bottom = 409.0.dp
+            paddingValues = PaddingValues(24.dp
             )
-        ).fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+        ).fillMaxWidth(1.0f).fillMaxHeight(0.4f),
+        "Aún estamos trabajando en esto, registrate para tener ventajas de veterano !"
     )
 }
 
@@ -269,12 +259,11 @@ fun Titulo(modifier: Modifier = Modifier) {
         modifier = modifier.padding(
             paddingValues = PaddingValues(
                 start = 87.65185546875.dp,
-                top = 0.0.dp,
                 end = 104.65193176269531.dp,
-                bottom = 568.0.dp
+                top = 36.dp
             )
-        ).fillMaxWidth(1.0f).fillMaxHeight(1.0f).wrapContentHeight(
-            align = Alignment.CenterVertically,
+        ).fillMaxWidth(1.0f).fillMaxHeight(0.2f).wrapContentHeight(
+            align = Alignment.Top,
             unbounded = true
         )
     )

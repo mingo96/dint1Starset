@@ -1,10 +1,16 @@
 package com.example.starsetapp.navegacion
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,10 +20,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.starsetapp.R
 import com.example.starsetapp.botonregistro.BotonRegistro
 import com.example.starsetapp.framealbum.Album
@@ -36,157 +43,112 @@ import com.google.relay.compose.RelayText
  * Generated code; do not edit directly
  */
 @Composable
-fun Navegacion(modifier: Modifier = Modifier) {
+fun Navegacion(modifier: Modifier = Modifier, navController: NavController) {
     TopLevel(modifier = modifier) {
         Fondo()
-        FrameAlbumTransmissions(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 8.0.dp,
-                    y = 128.0.dp
-                )
-            )
+
+        Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Top, horizontalAlignment = Alignment.CenterHorizontally) {
+            CuadroNavegacion(
+            ) {
+                TNavegaciN()
+            }
+        FrameAlbumTransmissions(navController = navController
         )
-        FrameAlbumVessels(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 8.0.dp,
-                    y = 192.0.dp
-                )
-            )
+        FrameAlbumVessels(navController = navController
         )
-        FrameAlbumDivisions(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 8.0.dp,
-                    y = 256.0.dp
-                )
-            )
+        FrameAlbumDivisions(navController = navController
         )
-        FrameAlbumHorizons(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 8.0.dp,
-                    y = 320.0.dp
-                )
-            )
+        FrameAlbumHorizons(navController = navController
         )
-        InicioInstance(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 8.0.dp,
-                    y = 384.0.dp
-                )
-            )
+        InicioInstance(navController = navController
         )
-        BotonRegistroInstance(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 8.0.dp,
-                    y = 448.0.dp
-                )
-            )
+        BotonRegistroInstance(navController = navController
         )
-        CuadroNavegacion(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 8.0.dp,
-                    y = 16.0.dp
-                )
-            )
-        ) {
-            TNavegaciN(
-                modifier = Modifier.boxAlign(
-                    alignment = Alignment.TopStart,
-                    offset = DpOffset(
-                        x = 8.0.dp,
-                        y = 8.0.dp
-                    )
-                )
-            )
+        SalirInstance(navController = navController
+        )
         }
-        SalirInstance(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.TopStart,
-                offset = DpOffset(
-                    x = 8.0.dp,
-                    y = 512.0.dp
-                )
-            )
-        )
     }
 }
 
-@Preview(widthDp = 328, heightDp = 568)
-@Composable
-private fun NavegacionPreview() {
-    MaterialTheme {
-        RelayContainer {
-            Navegacion(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
-        }
-    }
-}
 
 @Composable
 fun Fondo(modifier: Modifier = Modifier) {
     RelayImage(
         image = painterResource(R.drawable.navegacion_fondo),
         contentScale = ContentScale.Crop,
-        modifier = modifier.requiredWidth(360.0.dp).requiredHeight(792.0.dp)
+        modifier = modifier
+            .requiredWidth(360.0.dp)
+            .requiredHeight(792.0.dp)
     )
 }
 
 @Composable
-fun FrameAlbumTransmissions(modifier: Modifier = Modifier) {
-    FrameAlbum(modifier = modifier.requiredWidth(304.0.dp).requiredHeight(48.0.dp))
+fun FrameAlbumTransmissions(modifier: Modifier = Modifier,navController: NavController) {
+    FrameAlbum(modifier = modifier
+        .fillMaxWidth()
+        .padding(16.dp)
+        .requiredHeight(48.0.dp)
+        .clickable(true) { navController.navigate("Transmissions") })
 }
 
 @Composable
-fun FrameAlbumVessels(modifier: Modifier = Modifier) {
+fun FrameAlbumVessels(modifier: Modifier = Modifier,navController: NavController) {
     FrameAlbum(
         album = Album.Vessels,
-        modifier = modifier.requiredWidth(304.0.dp).requiredHeight(48.0.dp)
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+            .requiredHeight(48.0.dp)
+            .clickable(true) { navController.navigate("Vessels") }
     )
 }
 
 @Composable
-fun FrameAlbumDivisions(modifier: Modifier = Modifier) {
+fun FrameAlbumDivisions(modifier: Modifier = Modifier,navController: NavController) {
     FrameAlbum(
         album = Album.Divisions,
-        modifier = modifier.requiredWidth(304.0.dp).requiredHeight(48.0.dp)
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+            .requiredHeight(48.0.dp)
+            .clickable(true) { navController.navigate("Divisions") }
     )
 }
 
 @Composable
-fun FrameAlbumHorizons(modifier: Modifier = Modifier) {
+fun FrameAlbumHorizons(modifier: Modifier = Modifier,navController: NavController) {
     FrameAlbum(
         album = Album.Horizons,
-        modifier = modifier.requiredWidth(304.0.dp).requiredHeight(48.0.dp)
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+            .requiredHeight(48.0.dp)
+            .clickable(true) { navController.navigate("Horizons") }
     )
 }
 
 @Composable
-fun InicioInstance(modifier: Modifier = Modifier) {
-    Inicio(modifier = modifier.requiredWidth(304.0.dp).requiredHeight(48.0.dp))
+fun InicioInstance(modifier: Modifier = Modifier,navController: NavController) {
+    Inicio(modifier = modifier
+        .fillMaxWidth()
+        .padding(16.dp)
+        .requiredHeight(48.0.dp)
+        .clickable(true) { navController.navigate("PantallaInicial") })
 }
 
 @Composable
-fun BotonRegistroInstance(modifier: Modifier = Modifier) {
-    BotonRegistro(modifier = modifier.requiredWidth(304.0.dp).requiredHeight(48.0.dp))
+fun BotonRegistroInstance(modifier: Modifier = Modifier,navController: NavController) {
+    BotonRegistro(modifier = modifier
+        .fillMaxWidth()
+        .padding(16.dp)
+        .requiredHeight(48.0.dp)){ navController.navigate("Registro") }
 }
 
 @Composable
 fun TNavegaciN(modifier: Modifier = Modifier) {
     RelayText(
         content = "Navegación",
-        fontSize = 40.0.sp,
+        fontSize = 45.0.sp,
         fontFamily = iBMPlexMono,
         color = Color(
             alpha = 255,
@@ -197,10 +159,13 @@ fun TNavegaciN(modifier: Modifier = Modifier) {
         height = 1.1761647796630859.em,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier.requiredWidth(288.0.dp).requiredHeight(80.0.dp).wrapContentHeight(
-            align = Alignment.CenterVertically,
-            unbounded = true
-        )
+        modifier = modifier
+            .requiredWidth(288.0.dp)
+            .requiredHeight(80.0.dp)
+            .wrapContentHeight(
+                align = Alignment.CenterVertically,
+                unbounded = true
+            )
     )
 }
 
@@ -226,13 +191,21 @@ fun CuadroNavegacion(
             blue = 0
         ),
         content = content,
-        modifier = modifier.requiredWidth(304.0.dp).requiredHeight(96.0.dp)
+        modifier = modifier
+            .fillMaxWidth()
+            .requiredHeight(96.0.dp).padding(16.dp).wrapContentHeight(Alignment.CenterVertically)
     )
 }
 
 @Composable
-fun SalirInstance(modifier: Modifier = Modifier) {
-    Salir(modifier = modifier.requiredWidth(304.0.dp).requiredHeight(32.0.dp))
+fun SalirInstance(modifier: Modifier = Modifier, navController: NavController) {
+    Salir(modifier = modifier
+        .fillMaxWidth()
+        .padding(16.dp)
+        .requiredHeight(48.0.dp)
+    ){
+        navController.navigateUp()
+    }
 }
 
 @Composable
@@ -250,6 +223,11 @@ fun TopLevel(
             blue = 255
         ),
         content = content,
-        modifier = modifier.fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+        modifier = modifier
+            .fillMaxWidth(1f)
+            .fillMaxHeight(1f)
+            .wrapContentWidth(
+                Alignment.CenterHorizontally
+            )
     )
 }

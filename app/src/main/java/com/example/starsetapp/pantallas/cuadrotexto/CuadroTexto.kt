@@ -28,33 +28,20 @@ import com.google.relay.compose.RelayText
  * Generated code; do not edit directly
  */
 @Composable
-fun CuadroTexto(modifier: Modifier = Modifier) {
+fun CuadroTexto(modifier: Modifier = Modifier,contenido :String) {
     TopLevel(modifier = modifier) {
         CuadroInterior(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)) {
-            Texto(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
+            Texto(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f), contenido = contenido)
         }
     }
 }
 
-@Preview(widthDp = 312, heightDp = 152)
-@Composable
-private fun CuadroTextoPreview() {
-    MaterialTheme {
-        RelayContainer {
-            CuadroTexto(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
-        }
-    }
-}
 
 @Composable
-fun Texto(modifier: Modifier = Modifier) {
+fun Texto(modifier: Modifier = Modifier, contenido : String) {
     RelayText(
         content = buildAnnotatedString {
-            append("Fecha de lanzamiento\n8 de julio 2014\n")
-            withStyle(style = SpanStyle(fontSize = 15.0.sp)) {
-                append("-------------------------------\n")
-            }
-            append("Numero de canciones\n13")
+            append(contenido)
         },
         fontSize = 18.0.sp,
         fontFamily = iBMPlexMono,

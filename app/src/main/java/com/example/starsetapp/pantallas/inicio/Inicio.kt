@@ -45,7 +45,7 @@ private fun InicioPreview() {
 fun TInicio(modifier: Modifier = Modifier) {
     RelayText(
         content = "Inicio",
-        fontSize = 7.0.sp,
+        fontSize = 25.0.sp,
         fontFamily = iBMPlexMono,
         color = Color(
             alpha = 255,

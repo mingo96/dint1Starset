@@ -3,6 +3,7 @@ package com.example.starsetapp.cartaintegrante
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -122,7 +123,7 @@ fun TextoDustinProperty1Default(modifier: Modifier = Modifier) {
         height = 1.72.em,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier.requiredWidth(120.0.dp).requiredHeight(16.0.dp).wrapContentHeight(
+        modifier = modifier.padding(bottom = 8.dp).requiredWidth(120.0.dp).requiredHeight(16.0.dp).wrapContentHeight(
             align = Alignment.CenterVertically,
             unbounded = true
         )
@@ -198,7 +199,7 @@ fun DustinCantanteProperty1Dustin(modifier: Modifier = Modifier) {
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier.requiredWidth(136.0.dp).requiredHeight(24.0.dp).wrapContentHeight(
+        modifier = modifier.padding(bottom = 8.dp).requiredWidth(136.0.dp).requiredHeight(24.0.dp).wrapContentHeight(
             align = Alignment.CenterVertically,
             unbounded = true
         )
@@ -258,7 +259,7 @@ fun RonBajoProperty1Ron(modifier: Modifier = Modifier) {
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier.requiredWidth(136.0.dp).requiredHeight(24.0.dp).wrapContentHeight(
+        modifier = modifier.padding(bottom = 8.dp).requiredWidth(136.0.dp).requiredHeight(24.0.dp).wrapContentHeight(
             align = Alignment.CenterVertically,
             unbounded = true
         )
@@ -316,7 +317,7 @@ fun BrockGuitarristaProperty1Brock(modifier: Modifier = Modifier) {
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier.requiredWidth(136.0.dp).requiredHeight(24.0.dp).wrapContentHeight(
+        modifier = modifier.padding(bottom = 8.dp).requiredWidth(136.0.dp).requiredHeight(24.0.dp).wrapContentHeight(
             align = Alignment.CenterVertically,
             unbounded = true
         )
@@ -374,7 +375,7 @@ fun TextoAdamProperty1Adam(modifier: Modifier = Modifier) {
         textAlign = TextAlign.Left,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
-        modifier = modifier.requiredWidth(136.0.dp).requiredHeight(24.0.dp).wrapContentHeight(
+        modifier = modifier.padding(bottom = 8.dp).requiredWidth(136.0.dp).requiredHeight(24.0.dp).wrapContentHeight(
             align = Alignment.CenterVertically,
             unbounded = true
         )

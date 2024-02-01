@@ -1,5 +1,7 @@
 package com.example.starsetapp.pantallabasica
 
+import android.util.Log
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -7,6 +9,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -14,7 +20,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.starsetapp.R
+import com.example.starsetapp.navegacion.Navegacion
 import com.google.relay.compose.RelayContainer
 import com.google.relay.compose.RelayContainerScope
 import com.google.relay.compose.RelayImage
@@ -31,39 +39,42 @@ import com.google.relay.compose.tappable
 @Composable
 fun PantallaBasica(
     modifier: Modifier = Modifier,
-    onIconoMenuPressed: () -> Unit = {}
+    onIconoMenuPressed: () -> Unit = {},
+    navController: NavController
 ) {
     TopLevel(modifier = modifier) {
-        Fondo(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
-        CuadroSuperior(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)) {
-            ImagenLogo(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
+
+        Fondo(modifier = Modifier
+            .rowWeight(1.0f)
+            .columnWeight(1.0f))
+        CuadroSuperior(modifier = Modifier
+            .rowWeight(1.0f)
+            .columnWeight(1.0f)) {
+            ImagenLogo(modifier = Modifier
+                .rowWeight(1.0f)
+                .columnWeight(1.0f))
             Image5(
-                onIconoMenuPressed = onIconoMenuPressed,
-                modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)
+                onIconoMenuPressed = {
+                                     navController.navigate("Navegacion")
+                },
+                modifier = Modifier
+                    .rowWeight(1.0f)
+                    .columnWeight(1.0f)
             )
         }
+
     }
 }
 
-@Preview(widthDp = 360, heightDp = 640)
-@Composable
-private fun PantallaBasicaPreview() {
-    MaterialTheme {
-        RelayContainer {
-            PantallaBasica(
-                onIconoMenuPressed = {},
-                modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)
-            )
-        }
-    }
-}
 
 @Composable
 fun Fondo(modifier: Modifier = Modifier) {
     RelayImage(
         image = painterResource(R.drawable.pantalla_basica_fondo),
         contentScale = ContentScale.FillBounds,
-        modifier = modifier.fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+        modifier = modifier
+            .fillMaxWidth(1.0f)
+            .fillMaxHeight(1.0f)
     )
 }
 
@@ -72,14 +83,17 @@ fun ImagenLogo(modifier: Modifier = Modifier) {
     RelayImage(
         image = painterResource(R.drawable.pantalla_basica_imagen_logo),
         contentScale = ContentScale.Crop,
-        modifier = modifier.padding(
-            paddingValues = PaddingValues(
-                start = 0.0.dp,
-                top = 0.0.dp,
-                end = 288.0.dp,
-                bottom = 6.1538543701171875.dp
+        modifier = modifier
+            .padding(
+                paddingValues = PaddingValues(
+                    start = 0.0.dp,
+                    top = 0.0.dp,
+                    end = 288.0.dp,
+                    bottom = 6.1538543701171875.dp
+                )
             )
-        ).fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+            .fillMaxWidth(1.0f)
+            .fillMaxHeight(1.0f)
     )
 }
 
@@ -91,14 +105,18 @@ fun Image5(
     RelayImage(
         image = painterResource(R.drawable.pantalla_basica_image_5),
         contentScale = ContentScale.Crop,
-        modifier = modifier.padding(
-            paddingValues = PaddingValues(
-                start = 272.0.dp,
-                top = 12.30767822265625.dp,
-                end = 16.0.dp,
-                bottom = 18.461551666259766.dp
+        modifier = modifier
+            .padding(
+                paddingValues = PaddingValues(
+                    start = 272.0.dp,
+                    top = 12.30767822265625.dp,
+                    end = 16.0.dp,
+                    bottom = 18.461551666259766.dp
+                )
             )
-        ).tappable(onTap = onIconoMenuPressed).fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+            .clickable(true) { onIconoMenuPressed.invoke() }
+            .fillMaxWidth(1.0f)
+            .fillMaxHeight(1.0f)
     )
 }
 
@@ -123,13 +141,16 @@ fun CuadroSuperior(
             blue = 0
         ),
         content = content,
-        modifier = modifier.padding(
-            paddingValues = PaddingValues(
-                start = 0.0.dp,
-                top = 0.0.dp,
-                end = 0.0.dp
+        modifier = modifier
+            .padding(
+                paddingValues = PaddingValues(
+                    start = 0.0.dp,
+                    top = 0.0.dp,
+                    end = 0.0.dp
+                )
             )
-        ).fillMaxWidth(1.0f).fillMaxHeight(0.151f)
+            .fillMaxWidth(1.0f)
+            .fillMaxHeight(0.151f)
     )
 }
 
@@ -141,6 +162,8 @@ fun TopLevel(
     RelayContainer(
         isStructured = false,
         content = content,
-        modifier = modifier.fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+        modifier = modifier
+            .fillMaxWidth(1.0f)
+            .fillMaxHeight(1.0f)
     )
 }

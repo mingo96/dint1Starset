@@ -55,7 +55,7 @@ private fun SalirPreview() {
 fun Volver(modifier: Modifier = Modifier) {
     RelayText(
         content = "Volver",
-        fontSize = 7.0.sp,
+        fontSize = 12.0.sp,
         fontFamily = iBMPlexMono,
         color = Color(
             alpha = 255,

@@ -20,8 +20,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.starsetapp.carrusel.Carrusel
 import com.example.starsetapp.pantallabasica.PantallaBasica
+import com.example.starsetapp.pantallas.PantallaBasicaInstance
 import com.google.relay.compose.RelayContainer
 import com.google.relay.compose.RelayContainerScope
 import com.google.relay.compose.RelayText
@@ -33,17 +36,17 @@ import com.google.relay.compose.RelayText
  * Generated code; do not edit directly
  */
 @Composable
-fun PantallaInicial(modifier: Modifier = Modifier) {
+fun PantallaInicial(modifier: Modifier = Modifier, navController: NavController) {
     TopLevel(modifier = modifier) {
         PantallaBasicaInstance(modifier = Modifier
             .rowWeight(1.0f)
-            .columnWeight(1.0f))
+            .columnWeight(1.0f), navController)
         Column (modifier = modifier,
             verticalArrangement = Arrangement.Top){
 
             Titulo(modifier = Modifier)
 
-            ContenedorCarruselIntegrantes() {
+            ContenedorCarruselIntegrantes {
                 ContenedorTextoTitulo() {
                     TextoTituloCarrusel()
                 }
@@ -59,24 +62,7 @@ fun PantallaInicial(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(widthDp = 361, heightDp = 640)
-@Composable
-private fun PantallaInicialPreview() {
-    MaterialTheme {
-        RelayContainer {
-            PantallaInicial(modifier = Modifier
-                .rowWeight(1.0f)
-                .columnWeight(1.0f))
-        }
-    }
-}
 
-@Composable
-fun PantallaBasicaInstance(modifier: Modifier = Modifier) {
-    PantallaBasica(modifier = modifier
-        .fillMaxWidth(1.0f)
-        .fillMaxHeight(1.0f))
-}
 
 @Composable
 fun TextoTituloCarrusel(modifier: Modifier = Modifier) {
@@ -125,8 +111,7 @@ fun ContenedorTextoTitulo(
                 paddingValues = PaddingValues(
                     start = 64.0.dp,
                     end = 64.0.dp,
-                    top = 16.dp,
-                    bottom = 16.dp
+                    top = 12.dp
                 )
             )
             .fillMaxWidth(1.0f)
@@ -141,7 +126,7 @@ fun CarruselInstance(modifier: Modifier = Modifier) {
             .padding(
                 paddingValues = PaddingValues(
                     start = 16.0.dp,
-                    bottom = 16.0.dp,
+                    bottom = 12.0.dp,
                     end = 16.dp
                 )
             )

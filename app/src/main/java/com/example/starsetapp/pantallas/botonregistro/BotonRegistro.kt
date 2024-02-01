@@ -55,7 +55,7 @@ private fun BotonRegistroPreview() {
 fun TRegistro(modifier: Modifier = Modifier) {
     RelayText(
         content = "Registro",
-        fontSize = 7.0.sp,
+        fontSize = 25.0.sp,
         fontFamily = iBMPlexMono,
         color = Color(
             alpha = 255,

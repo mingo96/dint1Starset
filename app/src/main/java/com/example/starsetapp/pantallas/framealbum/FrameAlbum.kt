@@ -109,7 +109,7 @@ private fun FrameAlbumAlbumHorizonsPreview() {
 fun TTransmissionsAlbumTransmissions(modifier: Modifier = Modifier) {
     RelayText(
         content = "Transmissions",
-        fontSize = 7.0.sp,
+        fontSize = 15.0.sp,
         fontFamily = iBMPlexMono,
         color = Color(
             alpha = 255,
@@ -143,10 +143,10 @@ fun TopLevelAlbumTransmissions(
         radius = 15.0,
         strokeWidth = 2.0,
         strokeColor = Color(
-            alpha = 127,
-            red = 255,
-            green = 255,
-            blue = 255
+            alpha = 255,
+            red = 243,
+            green = 139,
+            blue = 81
         ),
         content = content,
         modifier = modifier.fillMaxWidth(1.0f).fillMaxHeight(1.0f)
@@ -157,7 +157,7 @@ fun TopLevelAlbumTransmissions(
 fun TVesselsAlbumVessels(modifier: Modifier = Modifier) {
     RelayText(
         content = "Vessels",
-        fontSize = 7.0.sp,
+        fontSize = 22.0.sp,
         fontFamily = iBMPlexMono,
         color = Color(
             alpha = 255,
@@ -191,9 +191,9 @@ fun TopLevelAlbumVessels(
         radius = 15.0,
         strokeWidth = 2.0,
         strokeColor = Color(
-            alpha = 127,
-            red = 255,
-            green = 255,
+            alpha = 255,
+            red = 75,
+            green = 244,
             blue = 255
         ),
         content = content,
@@ -205,7 +205,7 @@ fun TopLevelAlbumVessels(
 fun TDivisionsAlbumDivisions(modifier: Modifier = Modifier) {
     RelayText(
         content = "Divisions",
-        fontSize = 7.0.sp,
+        fontSize = 22.0.sp,
         fontFamily = iBMPlexMono,
         color = Color(
             alpha = 255,
@@ -239,7 +239,7 @@ fun TopLevelAlbumDivisions(
         radius = 15.0,
         strokeWidth = 2.0,
         strokeColor = Color(
-            alpha = 127,
+            alpha = 255,
             red = 255,
             green = 255,
             blue = 255
@@ -253,7 +253,7 @@ fun TopLevelAlbumDivisions(
 fun THorizonsAlbumHorizons(modifier: Modifier = Modifier) {
     RelayText(
         content = "Horizons",
-        fontSize = 7.0.sp,
+        fontSize = 22.0.sp,
         fontFamily = iBMPlexMono,
         color = Color(
             alpha = 255,
@@ -287,10 +287,10 @@ fun TopLevelAlbumHorizons(
         radius = 15.0,
         strokeWidth = 2.0,
         strokeColor = Color(
-            alpha = 127,
+            alpha = 255,
             red = 255,
-            green = 255,
-            blue = 255
+            green = 70,
+            blue = 236
         ),
         content = content,
         modifier = modifier.fillMaxWidth(1.0f).fillMaxHeight(1.0f)

@@ -703,7 +703,7 @@ fun CartaCancion(
             TextoCancion(text = CancionTexto.correspondencia.find { it.first==cancion }!!.second)
         }
         Cancion.AnihilatedLove -> TopLevelCancion(modifier = modifier) {
-                    ImagenCancionPocoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion10))
+                    ImagenCancionMuchoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion10))
             TextoCancion(text = CancionTexto.correspondencia.find { it.first==cancion }!!.second)
         }
         Cancion.Symbiotic -> TopLevelCancion(modifier = modifier) {
@@ -715,23 +715,23 @@ fun CartaCancion(
             TextoCancion(text = CancionTexto.correspondencia.find { it.first==cancion }!!.second)
         }
         Cancion.Devolution -> TopLevelCancion(modifier = modifier) {
-                    ImagenCancionPocoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion13))
+                    ImagenCancionMuchoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion13))
             TextoCancion(text = CancionTexto.correspondencia.find { it.first==cancion }!!.second)
         }
         Cancion.TheBreach -> TopLevelCancion(modifier = modifier) {
-                            ImagenCancionPocoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion14))
+                            ImagenCancionMuchoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion14))
             TextoCancion(text = CancionTexto.correspondencia.find { it.first==cancion }!!.second)
         }
         Cancion.TheEndlessEndeavor -> TopLevelCancion(modifier = modifier) {
-                        ImagenCancionPocoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion15))
+                        ImagenCancionMuchoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion15))
             TextoCancion(text = CancionTexto.correspondencia.find { it.first==cancion }!!.second)
         }
         Cancion.LeavingThisWorldBehind -> TopLevelCancion(modifier = modifier) {
-                    ImagenCancionPocoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion16))
+                    ImagenCancionMuchoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion16))
             TextoCancion(text = CancionTexto.correspondencia.find { it.first==cancion }!!.second)
         }
         Cancion.UnveiligTheArchitecture -> TopLevelCancion(modifier = modifier) {
-                    ImagenCancionPocoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion17))
+                    ImagenCancionMuchoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion17))
             TextoCancion(text = CancionTexto.correspondencia.find { it.first==cancion }!!.second)
         }
         Cancion.DivingBell -> TopLevelCancion(modifier = modifier) {
@@ -739,7 +739,7 @@ fun CartaCancion(
             TextoCancion(text = CancionTexto.correspondencia.find { it.first==cancion }!!.second)
         }
         Cancion.OtherWorldsThanThese -> TopLevelCancion(modifier = modifier) {
-                        ImagenCancionPocoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion19))
+                        ImagenCancionMuchoTexto(imagen = (R.drawable.carta_cancion_imagen_cancion19))
             TextoCancion(text = CancionTexto.correspondencia.find { it.first==cancion }!!.second)
         }
         Cancion.WakingUp -> TopLevelCancion(modifier = modifier) {
