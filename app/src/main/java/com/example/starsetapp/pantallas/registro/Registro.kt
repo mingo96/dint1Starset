@@ -1,8 +1,11 @@
 package com.example.starsetapp.registro
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
@@ -40,7 +43,7 @@ fun Registro(modifier: Modifier = Modifier, navController: NavController) {
     TopLevel(modifier = modifier) {
 
         PantallaBasicaInstance(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f),navController)
-        Column(){
+        Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Top){
             Titulo(modifier = Modifier)
 
             CuadroTextoInstance(modifier = Modifier)
@@ -56,7 +59,7 @@ fun Registro(modifier: Modifier = Modifier, navController: NavController) {
                                 x = 0.0.dp,
                                 y = 0.15587234497070312.dp
                             )
-                        )
+                        ),navController
                     )
                 }
                 CuadroTextoFormulario(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)) {
@@ -70,10 +73,7 @@ fun Registro(modifier: Modifier = Modifier, navController: NavController) {
 @Composable
 fun CuadroTextoInstance(modifier: Modifier = Modifier) {
     CuadroTexto(
-        modifier = modifier.padding(
-            paddingValues = PaddingValues(24.dp
-            )
-        ).fillMaxWidth(1.0f).fillMaxHeight(0.4f),
+        modifier = Modifier.padding(horizontal = 24.dp).fillMaxWidth(1.0f).fillMaxHeight(0.3f),
         "Aún estamos trabajando en esto, registrate para tener ventajas de veterano !"
     )
 }
@@ -88,7 +88,7 @@ fun CuadroPassword(modifier: Modifier = Modifier) {
                 end = 16.0.dp,
                 bottom = 228.3474464416504.dp
             )
-        ).fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+        ).fillMaxWidth(1.0f).fillMaxHeight(1.0f),1
     )
 }
 
@@ -102,7 +102,7 @@ fun CuadroCorreo(modifier: Modifier = Modifier) {
                 end = 16.0.dp,
                 bottom = 148.9710578918457.dp
             )
-        ).fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+        ).fillMaxWidth(1.0f).fillMaxHeight(1.0f),2
     )
 }
 
@@ -116,12 +116,12 @@ fun CuadroNombreUsuario(modifier: Modifier = Modifier) {
                 end = 16.0.dp,
                 bottom = 66.62806701660156.dp
             )
-        ).fillMaxWidth(1.0f).fillMaxHeight(1.0f)
+        ).fillMaxWidth(1.0f).fillMaxHeight(1.0f),3
     )
 }
 
 @Composable
-fun RegStrame(modifier: Modifier = Modifier) {
+fun RegStrame(modifier: Modifier = Modifier,navController: NavController) {
     RelayText(
         content = "Regístrame",
         fontSize = 15.0.sp,
@@ -138,7 +138,7 @@ fun RegStrame(modifier: Modifier = Modifier) {
         modifier = modifier.requiredWidth(264.0.dp).requiredHeight(44.0.dp).wrapContentHeight(
             align = Alignment.CenterVertically,
             unbounded = true
-        )
+        ).clickable { navController.navigate("PantallaInicial") }
     )
 }
 
@@ -233,7 +233,7 @@ fun ContenedorFormulario(
         modifier = modifier.padding(
             paddingValues = PaddingValues(
                 start = 32.0.dp,
-                top = 256.0.dp,
+                top = 24.0.dp,
                 end = 32.0.dp,
                 bottom = 24.0.dp
             )
@@ -253,19 +253,15 @@ fun Titulo(modifier: Modifier = Modifier) {
             green = 145,
             blue = 255
         ),
-        height = 1.72.em,
+        height = 1.em,
         fontWeight = FontWeight(700.0.toInt()),
         maxLines = -1,
         modifier = modifier.padding(
             paddingValues = PaddingValues(
                 start = 87.65185546875.dp,
-                end = 104.65193176269531.dp,
-                top = 36.dp
+                end = 104.65193176269531.dp
             )
-        ).fillMaxWidth(1.0f).fillMaxHeight(0.2f).wrapContentHeight(
-            align = Alignment.Top,
-            unbounded = true
-        )
+        ).fillMaxWidth(1.0f).fillMaxHeight(0.175f).padding(top = 36.dp)
     )
 }
 

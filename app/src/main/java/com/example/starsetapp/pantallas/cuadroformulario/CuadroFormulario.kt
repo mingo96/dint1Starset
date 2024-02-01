@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,27 +27,23 @@ import com.google.relay.compose.RelayText
  * Generated code; do not edit directly
  */
 @Composable
-fun CuadroFormulario(modifier: Modifier = Modifier) {
+fun CuadroFormulario(modifier: Modifier = Modifier, opcion:Int) {
+    val texto = when (opcion){
+        1->"Contraseña : "
+        2->"Correo : "
+        3->"Nombre de usuario :"
+        else->"campo no encontrado"
+    }
     TopLevel(modifier = modifier) {
-        TipoDato(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
+        TipoDato(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f),texto)
         Rellenable(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f)) {}
     }
 }
 
-@Preview(widthDp = 264, heightDp = 73)
 @Composable
-private fun CuadroFormularioPreview() {
-    MaterialTheme {
-        RelayContainer {
-            CuadroFormulario(modifier = Modifier.rowWeight(1.0f).columnWeight(1.0f))
-        }
-    }
-}
-
-@Composable
-fun TipoDato(modifier: Modifier = Modifier) {
+fun TipoDato(modifier: Modifier = Modifier, texto:String) {
     RelayText(
-        content = "Nombre de usuario :",
+        content = texto,
         fontSize = 15.0.sp,
         fontFamily = iBMPlexMono,
         color = Color(
@@ -68,7 +65,7 @@ fun TipoDato(modifier: Modifier = Modifier) {
         ).fillMaxWidth(1.0f).fillMaxHeight(1.0f).wrapContentHeight(
             align = Alignment.CenterVertically,
             unbounded = true
-        )
+        ).wrapContentWidth(Alignment.Start)
     )
 }
 
