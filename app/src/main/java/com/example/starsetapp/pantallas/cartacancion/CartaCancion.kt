@@ -918,7 +918,7 @@ fun ImagenCancionMuchoTexto(modifier: Modifier = Modifier, imagen:Int) {
         modifier = modifier
             .padding(
                 paddingValues = PaddingValues(
-                    start = 9.0.dp,
+                    start = 8.0.dp,
                     top = 8.0.dp,
                     end = 8.0.dp,
                     bottom = 72.0.dp
